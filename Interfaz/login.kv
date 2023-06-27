@@ -1,0 +1,114 @@
+#: import SwapTransition kivy.uix.screenmanager.SwapTransition
+<Ui>:
+    transition: SwapTransition()
+    MDScreen:
+        name: 'screen_base'
+        MDFloatLayout:
+            Image:
+                source: "logo.png"
+                size_hint: 0.36, 0.36
+                pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+            MDLabel:
+                text: "JAVALOVERS"
+                pos_hint: {'center_x': 0.80, 'center_y': 0.37}
+                text_color: 1,1,1,1
+                haling: 'center'
+                font_size: '25sp'
+            MDTextButton:
+                id: bt_ingresar
+                text: "Futuros programadores"
+                pos_hint: {'center_x': 0.52, 'center_y': 0.33}
+                text_color: 1,1,1,1
+                haling: 'center'
+                font_size: '15sp'
+                on_release: root.current = 'login2'
+
+            MDLabel:
+                text: "Encuentra el boton"
+                pos_hint: {'center_x': 0.75, 'center_y': 0.1}
+                text_color: 1,1,1,1
+                haling: 'center'
+                font_size: '25sp'
+
+            
+
+    MDScreen:
+        name: 'login2'
+        md_bg_color: '#252416'
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint_y: 0.6
+            pos_hint: {'center_y': 0.8} 
+            MDIconButton:
+                icon: "arrow-left"
+                pos_hint: {'center_x': 0.10,'center_y': 0.10}
+                on_release: root.current = 'screen_base'
+            Image:
+                source: "gigachad_man.jpeg"
+                size_hint: 1.50, 1.50
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            MDLabel:
+                text: 'Iniciar Sesion'
+                halign: 'center'
+                color: '#FAFAF7'
+                font_size:dp(20)
+                bold: True
+                pos_hint: {'center_y':.3}
+        MDBoxLayout:
+            orientation: 'vertical'
+            spacing: dp(12)
+            pos_hint: {'center_y': 0.7}
+            MDTextField:
+                id: input_email
+                hint_text: 'Ingrese Email'
+                icon_right: 'account'
+                font_size: dp(20)
+                pos_hint: {'center_x': .5, 'center_y': .52}
+                size_hint_x: .85
+                on_text: self.text = self.text.replace(" ", "")
+            MDTextField:
+                id: pssword
+                icon_right: 'eye-off'
+                font_size: dp(20)
+                hint_text: 'Ingrese Clave'
+                password: True
+                pos_hint: {'center_x': .5, 'center_y': .42}
+                size_hint_x: .85
+                on_text: self.text = self.text.replace(" ", "")
+            BoxLayout:
+                size_hint: .85, None
+                height: dp(30)
+                pos_hint: {'center_x': 0.5,'center_y': 0.4}
+                spacing: dp(5)
+                MDCheckbox:
+                    id: cb
+                    size_hint: None, None
+                    width:dp(30)
+                    height: dp(30)
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    on_press:
+                        pssword.password = not pssword.password
+                        pssword.icon_right = "eye-off" if pssword.password else "eye-off"
+                        
+
+                MDLabel:
+                    text: 'Mostras Clave'
+                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                    markup: True
+                    on_ref_press:
+                        cb.active = False if cb.active == True else True
+                        pssword.icon_right = "eye-off" if pssword.password else "eye-on"
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint_y: 0.4
+            spacing: dp(15)
+            pos_hint: {'center_y': 0.3}
+            MDFillRoundFlatButton:
+                id: intro
+                text: 'Ingresar'
+                pos_hint: {'center_x': 0.5}
+                 
+
+
+
+
