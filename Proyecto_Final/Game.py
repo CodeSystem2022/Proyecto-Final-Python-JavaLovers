@@ -144,3 +144,100 @@ aca lo tuyo aldo
     
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# visit_bathroom: Este método representa la acción de visitar el baño. El jugador puede investigar o decidir volver al campus. Por el momento no se agregaran más acciones, solo en futuras actualizaciones del código.
+    def visit_bathroom(self, initial=True):
+        if initial:
+            self.clear_window()
+            label1 = tk.Label(self.window, text="Sientes cierto olor, que no es a flores en el aire, pero ciertamente retrata la solemnidad del lugar, puedes regresar o investigar más", wraplength=400)
+            label1.pack()
+            button1 = tk.Button(self.window, text="Investigar el lugar del santo sepulcro", command=lambda: self.visit_bathroom(initial=False))
+            button1.pack()
+            button2 = tk.Button(self.window, text="Regresar a la civilización", command=self.return_to_campus)
+            button2.pack()
+        else:
+            self.player_state["vida"] -= 1
+            self.clear_window()
+            label1 = tk.Label(self.window, text="*¿Qué demonios haces en un baño para hombres, cochino degenerado?*", wraplength=400)
+            label1.pack()
+            time.sleep(2)
+            self.visit_bathroom(initial=True)
+
+
+    # go_to_class: Este método representa la acción de ir a clases. Dependiendo de las acciones del jugador, se puede ganar o perder vida (+1 o -1 de vida). Por el momento no se agregaran más acciones, solo en futuras actualizaciones del código.
+    def go_to_class(self, initial=True):
+        if initial:
+            self.player_state["vida"] += 1
+            self.clear_window()
+            label1 = tk.Label(self.window, text="Ya era hora de que llegaras, ten toma asiento mocoso", wraplength=400)
+            label1.pack()
+            button1 = tk.Button(self.window, text="Ruega por la iluminación", command=lambda: self.go_to_class(initial=False))
+            button1.pack()
+            button2 = tk.Button(self.window, text="Regresar a casa", command=self.return_to_campus)
+            button2.pack()
+        else:
+            self.player_state["vida"] -= 1
+            self.clear_window()
+            label1 = tk.Label(self.window, text="*¿Así que quieres aprender?, bien por ti*\n*Golpe mortal*", wraplength=400)
+            label1.pack()
+            time.sleep(2)
+            self.clear_window()
+            label2 = tk.Label(self.window, text="*Para que aprendas a no ser un lamebotas*", wraplength=400)
+            label2.pack()
+            time.sleep(2)
+            self.go_to_class(initial=True)
+        pass
+   
+    # save_game: Este método guarda el estado actual del juego en la base de datos. Guarda la vida y el arma actual del jugador en la base de datos.
+    def save_game(self):
+        conn = sqlite3.connect(self.db_name)
+        cursor = conn.cursor()
+        cursor.execute('UPDATE partida SET vida = ?, arma = ? WHERE id = 1', (self.player_state['vida'], self.player_state['arma']))
+        conn.commit()
+        conn.close()
+
+
+# Se crea una instancia del juego y se inicia la ejecución
+game = Game()
+
