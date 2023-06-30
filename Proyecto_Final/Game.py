@@ -46,3 +46,12 @@
 
         self.load_game_button = tk.Button(self.intro_frame, text="Cargar partida", command=self.load_game)
         self.load_game_button.pack(pady=10)
+
+        
+    # start_new_game: Este método inicia una nueva partida. Limpia la ventana, crea la barra de estado del jugador,
+    # muestra el campus y actualiza la barra de estado del jugador.
+    def start_new_game(self):
+        self.clear_window()
+        self.create_player_status()  # Creación de la barra de estado
+        self.show_campus()
+        self.update_player_status()  # Se actualiza la barra de estado
