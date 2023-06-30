@@ -99,6 +99,12 @@
         self.clear_window()
         # Llama a show_campus para mostrar la vista del campus (que incluye varios botones para visitar diferentes lugares).
         self.show_campus()
+        # Después de eso, verifica si se ha definido "status_frame" utilizando hasattr.
+        # Si "status_frame" está definido (lo que significa que ya se ha iniciado o cargado un juego), se llama a update_player_status para actualizar la barra de estado del jugador.
+        # Si "status_frame" no está definido, simplemente se omite esta actualización.
+        # Por lo tanto, si se llama a return_to_campus antes de que se haya iniciado o cargado un juego, simplemente se mostrará la vista del campus sin una barra de estado del jugador.
+        if hasattr(self, "status_frame"): 
+            self.update_player_status()
      
 aca lo tuyo aldo
 
