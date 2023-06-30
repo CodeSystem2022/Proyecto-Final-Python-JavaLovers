@@ -55,3 +55,19 @@
         self.create_player_status()  # Creación de la barra de estado
         self.show_campus()
         self.update_player_status()  # Se actualiza la barra de estado
+     
+   # load_game: Este método carga una partida guardada. Recupera los datos de la partida de la base de datos y los asigna al estado del jugador.
+    # Luego, limpia la ventana, crea la barra de estado del jugador, muestra el campus y actualiza la barra de estado.
+    def load_game(self):
+        self.clear_window()
+        conn = sqlite3.connect(self.db_name)
+        cursor = conn.cursor()
+        cursor.execute('SELECT vida, arma FROM partida WHERE id = 1')
+        vida, arma = cursor.fetchone()
+        self.player_state['vida'] = vida
+        self.player_state['arma'] = arma
+        conn.close()
+        self.create_player_status()  
+        self.show_campus() 
+        self.update_player_status() 
+     
