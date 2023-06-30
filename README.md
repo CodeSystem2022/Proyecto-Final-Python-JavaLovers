@@ -1,9 +1,9 @@
 # Proyecto-Final-Python-JavaLovers
 
-Grupo: Java Lovers
-Universidad: UTN Facultad Regional de San Rafael
-Carrera: Tecnicatura Universitaria en Programacion
-Año: 2023
+- Grupo: Java Lovers
+- Universidad: UTN Facultad Regional de San Rafael
+- Carrera: Tecnicatura Universitaria en Programacion
+- Año: 2023
 
 Descripcion:
 Proyecto final realizado en el lenguaje de Python. El mismo consiste en un juego basado en texto, con una interfaz grafica para la interaccion con el jugador y una conexion con una base de datos SQLite. Dicho juego consiste en una implementacion de una introduccion, con una cancion que sera reproducida desde el inicio del codigo hasta el cierre de la ventana, mas un menu que tiene una imagen de fondo y dos opciones:
@@ -13,11 +13,11 @@ Proyecto final realizado en el lenguaje de Python. El mismo consiste en un juego
 El juego esta desarrollado de tal manera que se puede incorporar mas secuncias de menu interactivo (mensajes de texto, acciones, botones, etc).
 
 Recursos utilizados:
-Lenguaje: Python
-Bibliotecas (Python): - Tkinter 
+- Lenguaje: Python
+- Bibliotecas (Python): - Tkinter 
                       - SQLite3 
                       - Time 
                       - Pygame 
                       - PIL: Image, ImageTk
-Imagen (.jpg): imagen00
-Musica (.mp3): Hephaestus
+- Imagen (.jpg): imagen00
+- Musica (.mp3): Hephaestus
