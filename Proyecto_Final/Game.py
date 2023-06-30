@@ -139,53 +139,6 @@ aca lo tuyo aldo
         button1 = tk.Button(self.window, text="Regresas sigilosamente", command=self.return_to_campus)
         button1.pack()
 
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # visit_bathroom: Este método representa la acción de visitar el baño. El jugador puede investigar o decidir volver al campus. Por el momento no se agregaran más acciones, solo en futuras actualizaciones del código.
     def visit_bathroom(self, initial=True):
         if initial:
