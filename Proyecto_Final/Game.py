@@ -84,4 +84,11 @@
         self.status_frame = tk.Frame(self.window, relief="sunken", borderwidth=1)
         self.status_frame.pack(anchor='ne', padx=10, pady=10)
         self.update_player_status()
-     
+
+
+
+
+
+    
+
+
