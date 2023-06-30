@@ -115,19 +115,16 @@
 
         multiuse_button = tk.Button(self.window, text="Visitar el salón de usos múltiples", command=self.visit_multiuse_room)
         multiuse_button.pack()
-     
-     
 
-     
-aca lo tuyo aldo
+        bathroom_button = tk.Button(self.window, text="Visitar el baño (asuntos urgentes)", command=self.visit_bathroom)
+        bathroom_button.pack()
 
+        class_button = tk.Button(self.window, text="Ir a clases", command=self.go_to_class)
+        class_button.pack()
 
-
-
-
-
-
-
+        save_game_button = tk.Button(self.window, text="Guardar partida", command=self.save_game)
+        save_game_button.pack()
+    
 
 # visit_cafeteria: Este método representa la acción de visitar la cafetería. El jugador pierde vida al visitar la cafetería y se le presentan varias opciones de acción, en las cuales también puede perder vida. Por el momento no se agregaran más acciones, solo en futuras actualizaciones del código.    
     def visit_cafeteria(self, initial=False):
