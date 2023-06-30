@@ -94,6 +94,12 @@
         arma_label = tk.Label(self.status_frame, text="Arma: {}".format(self.player_state['arma']))
         arma_label.pack(side="left")
      
+# return_to_campus: Este método lleva al jugador de vuelta al campus desde otra vista (por ejemplo, después de visitar la cafetería). Limpia la ventana para deshacerse de todos los widgets actuales (excepto el marco de estado, como se explicó anteriormente), muestra el campus y actualiza la barra de estado del jugador.
+    def return_to_campus(self):
+        self.clear_window()
+        # Llama a show_campus para mostrar la vista del campus (que incluye varios botones para visitar diferentes lugares).
+        self.show_campus()
+     
 aca lo tuyo aldo
 
 
