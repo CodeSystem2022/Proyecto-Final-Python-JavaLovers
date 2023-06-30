@@ -105,6 +105,19 @@
         # Por lo tanto, si se llama a return_to_campus antes de que se haya iniciado o cargado un juego, simplemente se mostrará la vista del campus sin una barra de estado del jugador.
         if hasattr(self, "status_frame"): 
             self.update_player_status()
+
+# show_campus: Este método muestra los botones del campus que permiten al jugador visitar diferentes ubicaciones.
+    def show_campus(self):
+        # Creación de los botones del campus
+     
+        cafeteria_button = tk.Button(self.window, text="Visitar la cafetería", command=lambda: self.visit_cafeteria(initial=True))
+        cafeteria_button.pack()
+
+        multiuse_button = tk.Button(self.window, text="Visitar el salón de usos múltiples", command=self.visit_multiuse_room)
+        multiuse_button.pack()
+     
+     
+
      
 aca lo tuyo aldo
 
