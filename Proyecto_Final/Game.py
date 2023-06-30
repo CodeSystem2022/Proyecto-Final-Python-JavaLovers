@@ -84,8 +84,60 @@
         self.status_frame = tk.Frame(self.window, relief="sunken", borderwidth=1)
         self.status_frame.pack(anchor='ne', padx=10, pady=10)
         self.update_player_status()
+aca lo tuyo aldo
 
 
+
+
+
+
+
+
+
+# visit_cafeteria: Este método representa la acción de visitar la cafetería. El jugador pierde vida al visitar la cafetería y se le presentan varias opciones de acción, en las cuales también puede perder vida. Por el momento no se agregaran más acciones, solo en futuras actualizaciones del código.    
+    def visit_cafeteria(self, initial=False):
+        if initial:
+            self.player_state["vida"] -= 10  # El jugador pierde 10 de vida
+            message1 = "¿Con que holgazaneando fuera del horario de estudio, eh?, *10 puntos menos para Gryffindor* digo,*muere holgazán*"
+        else:
+            self.player_state["vida"] -= 1  # El jugador pierde 1 de vida
+            message1 = "*¿Todavía no aprendes?*"
+
+
+        self.clear_window()
+
+
+        label1 = tk.Label(self.window, text=message1, wraplength=400)
+        label1.pack()
+       
+        if initial:
+            message2 = "*Y que eso te sirva de lección, termina rapidamente aqui y continua con tus estudios*"
+            label2 = tk.Label(self.window, text=message2, wraplength=400)
+            label2.pack()
+
+
+        vending_machine_button = tk.Button(self.window, text="Comprar de la máquina expendedora", command=self.visit_cafeteria)
+        vending_machine_button.pack()
+
+
+        steal_food_button = tk.Button(self.window, text="Manotear la comida de las mesas", command=self.visit_cafeteria)
+        steal_food_button.pack()
+
+
+        tip_button = tk.Button(self.window, text="Dejar propina al chico de la cafetería", command=self.visit_cafeteria)
+        tip_button.pack()
+
+
+        run_away_button = tk.Button(self.window, text="Huir despavorido", command=self.return_to_campus)
+        run_away_button.pack()
+       
+    # visit_multiuse_room: Este método representa la acción de visitar la sala de usos múltiples. En este lugar, el jugador ve una "escena" y puede decidir volver al campus. Por el momento no se agregaran más acciones, solo en futuras actualizaciones del código.
+    def visit_multiuse_room(self):
+        self.clear_window()
+        label1 = tk.Label(self.window, text="Al entrar ves equipos de mate tirados y gente durmiendo, mejor decides no preguntar y volver en otro momento", wraplength=400)
+        label1.pack()
+        button1 = tk.Button(self.window, text="Regresas sigilosamente", command=self.return_to_campus)
+        button1.pack()
 
 
 
