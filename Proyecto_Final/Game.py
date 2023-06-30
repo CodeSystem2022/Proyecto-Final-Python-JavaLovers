@@ -1,4 +1,34 @@
- # initialize_db: Este método inicializa la base de datos SQLite. Crea una tabla llamada 'partida' si no existe y si no existe una fila con id=1 en la tabla 'partida', la crea e inicializa la vida en 100 y la arma en "puños".    
+import tkinter as tk # Tkinter es una biblioteca de Python para la creación de interfaces gráficas de usuario (GUIs).Permite crear ventanas, botones, campos de texto, etc. para las aplicaciones de Python.
+import sqlite3 # SQLite3 es una biblioteca de Python que proporciona una interfaz para interactuar con bases de datos SQLite.Siendo SQLite un sistema de gestión de bases de datos SQL ligero, que almacena los datos en un archivo local en lugar de un servidor remoto.
+import time # La biblioteca time proporciona funciones para trabajar con tiempos y fechas.Por ejemplo, podemos usarla para pausar la ejecución del programa durante un período de tiempo específico.
+import pygame # Pygame es una biblioteca de Python para el desarrollo de videojuegos. Esta nos permite crear ventanas de juego, manejar eventos de entrada (como pulsaciones de teclas y clics del ratón),dibujar gráficos y formas en la pantalla, y reproducir sonidos y música.
+from PIL import Image, ImageTk # PIL (Python Imaging Library, también conocida como Pillow en versiones más recientes) es una biblioteca de Python para abrir, manipular y guardar muchos formatos diferentes de archivos de imágenes. En donde Image es un módulo de PIL que contiene funciones para trabajar con imágenes. ImageTk es un módulo que permite utilizar imágenes PIL con Tkinter.
+
+class Game:
+    #__init__: Este es el constructor de la clase. Inicializa la ventana de Tkinter, configura la geometría y el título de la ventana, inicializa la base de datos, crea la pantalla de introducción, inicializa el estado del jugador y reproduce la música de fondo.
+    def __init__(self):
+        self.window = tk.Tk()
+        self.window.geometry("800x600")
+        self.window.title("UTN WARS")  # Configurar el título de la ventana
+        self.db_name = 'partidas_guardadas.db'
+        self.initialize_db()
+        self.create_intro_screen()
+        self.player_state = {'vida': 100, 'arma': 'ninguna', 'location': 'campus'}
+        
+        # Ruta de la música de fondo
+        ruta_musica = "d:\\Descargas\\Carpetas\\UTN\\Tec. Prog\\Tercer Semestre\\Programacion III\\Proyecto-Python\\Proyecto-codigo\\Hephaestus.mp3" 
+        # Reproducir música de fondo
+        self.reproducir_musica(ruta_musica)
+
+        self.window.mainloop()
+    
+    # reproducir_musica: Este método se encarga de reproducir la música de fondo del juego. Recibe como argumento la ruta de la música.
+    def reproducir_musica(self, ruta):
+        pygame.mixer.init()
+        pygame.mixer.music.load(ruta)
+        pygame.mixer.music.play(-1) # -1 para reproducir en bucle
+    
+    # initialize_db: Este método inicializa la base de datos SQLite. Crea una tabla llamada 'partida' si no existe y si no existe una fila con id=1 en la tabla 'partida', la crea e inicializa la vida en 100 y la arma en "puños".    
     def initialize_db(self):
         conn = sqlite3.connect(self.db_name)
         cursor = conn.cursor()
