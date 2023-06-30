@@ -79,5 +79,9 @@
             # De esta manera, "status_frame" no se destruirá incluso si clear_window se llama antes de que "status_frame" se haya definido.
             if widget != getattr(self, "status_frame", None):  
                 widget.destroy()
-     
+     # create_player_status: Este método crea la barra de estado del jugador.
+    def create_player_status(self):
+        self.status_frame = tk.Frame(self.window, relief="sunken", borderwidth=1)
+        self.status_frame.pack(anchor='ne', padx=10, pady=10)
+        self.update_player_status()
      
