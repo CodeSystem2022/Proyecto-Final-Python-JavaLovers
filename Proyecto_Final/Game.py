@@ -84,6 +84,16 @@
         self.status_frame = tk.Frame(self.window, relief="sunken", borderwidth=1)
         self.status_frame.pack(anchor='ne', padx=10, pady=10)
         self.update_player_status()
+     
+     # update_player_status: Este método actualiza la barra de estado del jugador mostrando la vida y el arma actual del jugador.
+    def update_player_status(self):
+        for widget in self.status_frame.winfo_children():
+            widget.destroy()
+        vida_label = tk.Label(self.status_frame, text="Vida: {}".format(self.player_state['vida']))
+        vida_label.pack(side="left")
+        arma_label = tk.Label(self.status_frame, text="Arma: {}".format(self.player_state['arma']))
+        arma_label.pack(side="left")
+     
 aca lo tuyo aldo
 
 
