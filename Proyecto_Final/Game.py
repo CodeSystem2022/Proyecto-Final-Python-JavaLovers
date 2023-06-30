@@ -70,4 +70,14 @@
         self.create_player_status()  
         self.show_campus() 
         self.update_player_status() 
+     # clear_window: Este método limpia todos los widgets de la ventana principal de tkinter, excepto el marco de estado.
+    def clear_window(self):
+        for widget in self.window.winfo_children():
+            # Aquí se utiliza getattr para obtener el atributo "status_frame" del objeto self (que es una instancia de la clase Game). 
+            # Si "status_frame" no existe (lo que sucede antes de que se haya llamado a start_new_game o load_game), getattr retorna None.
+            # Luego, se verifica si el widget actual es diferente de "status_frame". Si es así, el widget se destruye.
+            # De esta manera, "status_frame" no se destruirá incluso si clear_window se llama antes de que "status_frame" se haya definido.
+            if widget != getattr(self, "status_frame", None):  
+                widget.destroy()
+     
      
